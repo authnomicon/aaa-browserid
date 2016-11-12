@@ -7,3 +7,22 @@
   $ curl -v https://mockmyid.com/.well-known/browserid
   $ curl -v https://mockmyid.com/browserid/sign_in.html
   $ curl -v https://mockmyid.com/browserid/provision.html
+
+- mozilla.com
+  $ curl -v https://mozilla.com/.well-known/browserid
+  $ curl -v https://mozillafoundation.org/.well-known/browserid
+  $ curl -v https://login.mozilla.org/.well-known/browserid
+  
+
+
+
+
+https://github.com/mozilla/persona
+https://github.com/mozilla/id-specs
+https://github.com/mozilla/browserid-certifier
+https://github.com/mozilla-services/mozilla-idp
+
+https://github.com/jaredhanson/persona
+https://github.com/jaredhanson/id-specs
+https://github.com/jaredhanson/browserid-certifier
+https://github.com/jaredhanson/mozilla-idp
