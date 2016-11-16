@@ -21,8 +21,15 @@ https://github.com/mozilla/persona
 https://github.com/mozilla/id-specs
 https://github.com/mozilla/browserid-certifier
 https://github.com/mozilla-services/mozilla-idp
+https://github.com/mozilla/persona-gmail-bridge
+https://github.com/mozilla/persona-yahoo-bridge
 
 https://github.com/jaredhanson/persona
 https://github.com/jaredhanson/id-specs
 https://github.com/jaredhanson/browserid-certifier
 https://github.com/jaredhanson/mozilla-idp
+https://github.com/jaredhanson/persona-yahoo-bridge
+https://github.com/jaredhanson/persona-gmail-bridge
+
+
+https://github.com/mozilla/browserid-crypto
