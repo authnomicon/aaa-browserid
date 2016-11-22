@@ -14,6 +14,9 @@
   $ curl -v https://login.mozilla.org/.well-known/browserid
   
 
+https://login.mozilla.org/sign_in?email=foo%40mozilla.com
+https://login.mozilla.org/sign_in?email=foo%40mozillafoundation.org
+
 
 
 
