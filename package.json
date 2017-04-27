@@ -1,5 +1,5 @@
 {
-  "name": "nodex aaa browserid",
+  "name": "@authnomicon/aaa-browserid",
   "version": "0.0.0",
   "description": "",
   "author": {
@@ -8,10 +8,10 @@
     "url": "http://www.jaredhanson.net/"
   },
   "repository": {    "type": "git",
-    "url": "git://github.com/modulate/nodex-aaa-browserid.git"
+    "url": "git://github.com/authnomicon/aaa-browserid.git"
   },
   "bugs": {
-    "url": "http://github.com/modulate/nodex-aaa-browserid/issues"
+    "url": "http://github.com/authnomicon/aaa-browserid/issues"
   },
   "license": "MIT",
   "licenses": [
