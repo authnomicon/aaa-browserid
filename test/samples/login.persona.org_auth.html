@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/.
+   - Source: https://github.com/mozilla/browserid/
+   - Current Commit: https://github.com/mozilla/browserid/commit/sSdlv5A
+-->
+
+
+<html LANG="en" dir="ltr">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+  
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
+  <meta name="format-detection" content="email=no" />
+
+  <!--[if lt IE 9]>
+    <script src="https://static.login.persona.org/v/4b0d630691/production/html5shim.js"></script>
+  <![endif]-->
+  <link href="https://static.login.persona.org/v/ec47a37bee/production/en/dialog.css" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]>
+    <link href="https://static.login.persona.org/v/844b6f3f18/production/ie8_dialog.css" rel="stylesheet" type="text/css">
+  <![endif]-->
+  <link rel="shortcut icon" href=https://static.login.persona.org/v/425cfa2565/favicon.ico>  
+  <title>Mozilla Persona: A Better Way to Sign In</title>
+</head>
+  <body >
+      
+
+      <div id="content">
+        <!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+    <section id="formWrap" class="rpBackground">
+      <form novalidate>
+        <div class="favicon">
+            <div class="table">
+                <div class="vertical rpInfo">
+                </div>
+            </div>
+        </div>
+
+        <div id="signIn">
+            <div class="table">
+              <div class="vertical">
+                <div class="contents">
+                </div>
+                <!-- the username and password must be in the dialog before
+                     DOMContentLoaded or else the Firefox password manager does
+                     not fill in passwords -->
+                <div id="authentication_form" class="form_section">
+
+                    <div class="isMobile">
+                      <h2 class="isStart isEmailMutable">
+                          Sign in to <span class="start_rp_name"></span> with&hellip;
+                      </h2>
+                    </div>
+
+                    <ul class="inputs">
+
+
+
+                    <div class="isDesktop">
+                      <h2 class="isStart isAddressInfo persona_intro">
+                          Sign in to <span class="start_rp_name"></span> with&hellip;
+
+                      </h2>
+                      <h2 class="isTransitionToSecondary deemphasize">
+                        <strong class="authentication_idp_name"></strong> no longer allows you to log into Persona with your <strong class="authentication_idp_name"></strong> password. You must now use your existing Persona password to log in with this email address.
+                      </h2>
+
+                      <h2 class="isReturning">
+                        Persona password
+                      </h2>
+                    </div>
+
+
+                        <li>
+                            <label for="authentication_email" class="hidden">email address</label>
+                            <input id="authentication_email" class="isDesktopOrStart" type="email" autocapitalize="off" autocorrect="off" spellcheck="false" value="" maxlength="254" placeholder="email address"/>
+
+                            <div id="email_format" class="tooltip" for="authentication_email">
+                              Must be an email address
+                            </div>
+
+                            <div id="email_required" class="tooltip" for="authentication_email">
+                              Email field required
+                            </div>
+
+                        </li>
+
+
+                        <li class="isReturning isTransitionToSecondary">
+                            <span class="isEmailImmutable right">
+                              <a class="isDesktop forgotPassword" href="#">
+                                Forgot your password?
+                              </a>
+                            </span>
+
+                            <label for="authentication_password" class="hidden">Password</label>
+
+                            <h2 class="isMobile">Enter password</h2>
+                            <input id="authentication_password" type="password" maxlength="80" placeholder="password" />
+
+                            <div id="password_required" class="tooltip" for="authentication_password">
+                              Password field required
+                            </div>
+
+                            <div id="could_not_add" class="tooltip" for="authentication_password">
+                              Initial confirmation sent &ndash; wait a few minutes before requesting another
+                            </div>
+
+                            <div id="cannot_authenticate" class="tooltip" for="authentication_password">
+                              Password incorrect
+                            </div>
+
+                        </li>
+
+                    </ul>
+
+                    <p class="submit cf isReturning isTransitionToSecondary">
+                      <a class="isMobile forgotPassword" href="#">
+                        Forgot your password?
+                      </a>
+                    </p>
+
+
+                    <p class="submit tospp cf isDesktopOrStart isEmailMutable">
+                       By proceeding, you agree to Persona's <a href="https://login.persona.org/en/embedded_tos" target="_new" tabindex="1">Terms</a> and <a href="https://login.persona.org/en/embedded_privacy" target="_new" tabindex="1">Privacy Policy</a>.
+                    </p>
+
+                    <p class="isMobile isStart submit tospp cf rpInfo">
+                    </p>
+
+                    <p class="submit cf buttonrow">
+
+                      <button class="isDesktop isStart isAddressInfo">
+                        next
+                      </button>
+
+                      <button class="isMobile isStart isAddressInfo continue right" disabled>
+                        continue
+                      </button>
+
+                      <a href="#" class="isMobile isStart isAddressInfo cancelDialog">
+                        cancel
+                      </a>
+
+                      <button class="isReturning isTransitionToSecondary">
+                        sign in
+                      </button>
+
+                      <a href="#" class="isMobile isReturning isTransitionToSecondary cancelPassword">
+                        cancel
+                      </a>
+
+                      <a href="#" class="isDesktop isEmailImmutable cancelPassword right">
+                        cancel
+                      </a>
+
+                      <a class="isDesktop isReturning isTransitionToSecondary isEmailMutable forgotPassword left" href="#">
+                        Forgot your password?
+                      </a>
+
+                    </p>
+
+
+                </div>
+              </div>
+            </div>
+            <div class="arrowContainer isDesktop">
+                <div class="arrow"></div>
+            </div>
+        </div>
+      </form>
+    </section>
+
+
+    <section id="wait" class="message_screen">
+        <!-- because each section is an absolutely positioned element, we have to use the inner table container element to be able to vertically/horizontally center correctly.  Without the table element, the layout gets all messed up. -->
+        <div class="table">
+            <div class="vertical">
+                <div class="contents">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="error" class="message_screen">
+        <div class="table">
+            <div class="vertical">
+                <div class="contents">
+                </div>
+            </div>
+        </div>
+        <p class="submit cf buttonrow isMobile">
+            <button class="cancelDialog">OK</button>
+        </p>
+    </section>
+
+    <section id="delay" class="message_screen center">
+        <div class="table">
+            <div class="vertical">
+                <div class="contents">
+                </div>
+            </div>
+        </div>
+    </section>
+
+      </div>
+
+      
+
+
+      <footer>
+<span id="footerText"><strong>Mozilla Persona.</strong> Simplified sign-in by the non-profit behind Firefox. <a  href='/about' target='_blank'>Learn more&rarr;</a></span>
+      </footer>
+
+
+      
+        <script src="https://static.login.persona.org/v/4be4a489f4/production/en/idp_authenticate.js"></script>
+      
+	</body>
+</html>

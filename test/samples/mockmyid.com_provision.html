@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <title>MockMyID Provisioning</title>
+  </head>
+  <body>
+    <script>
+      var persona_server = "https://login.persona.org/";
+      if (document.referrer) {
+        persona_server = /^.*?:\/\/[^/]+\//.exec(document.referrer);
+      }
+      document.write('<script src="' + persona_server + 'provisioning_api.js"></scr' + 'ipt>');
+    </script>
+    <script src="bidbundle-min.js"></script>
+    <script type="text/javascript">
+      navigator.id.beginProvisioning(function(email, cert_duration_s) {
+        navigator.id.genKeyPair(function(pubkey) {
+          var jwcrypto = require('./lib/jwcrypto');
+
+          // NOTE: DO NOT EVER PUT YOUR SECRET KEY SOMEWHERE PUBLIC LIKE THIS
+          var secKey = jwcrypto.loadSecretKeyFromObject({
+            algorithm: "DS",
+            x: "385cb3509f086e110c5e24bdd395a84b335a09ae",
+            p: "ff600483db6abfc5b45eab78594b3533d550d9f1bf2a992a7a8daa6dc34f8045ad4e6e0c429d334eeeaaefd7e23d4810be00e4cc1492cba325ba81ff2d5a5b305a8d17eb3bf4a06a349d392e00d329744a5179380344e82a18c47933438f891e22aeef812d69c8f75e326cb70ea000c3f776dfdbd604638c2ef717fc26d02e17",
+            q: "e21e04f911d1ed7991008ecaab3bf775984309c3",
+            g: "c52a4a0ff3b7e61fdf1867ce84138369a6154f4afa92966e3c827e25cfa6cf508b90e5de419e1337e07a2e9e2a3cd5dea704d175f8ebf6af397d69e110b96afb17c7a03259329e4829b0d03bbc7896b15b4ade53e130858cc34d96269aa89041f409136c7242a38895c9d5bccad4f389af1d7a4bd1398bd072dffa896233397a"
+          });
+
+          var pubkey = jwcrypto.loadPublicKeyFromObject(JSON.parse(pubkey));
+
+          // Artificially skew times into the past.
+          // Fixes issues with client clocks being slightly off.
+          var now = new Date();
+          now.setSeconds(now.getSeconds() - 120);
+          var expiration = now.valueOf() + (cert_duration_s * 1000);
+
+          // NOTE: DO NOT EVER USE A STATIC SEED FOR A RANDOM NUMBER GENERATOR
+          // Seed the RNG for browsers without window.crypto.getRandomValues
+          // https://developer.mozilla.org/en-US/docs/DOM/window.crypto.getRandomValues
+          jwcrypto.addEntropy("High-security random data.");
+
+          // Temporary hack for Bug 2680
+          if (email === "bug2680@mockmyid.com") {
+            email = "whoops@mockmyid.com";
+          }
+
+          jwcrypto.cert.sign(
+            {publicKey: pubkey, principal: {email: email}},
+            {issuer: window.location.host, issuedAt: now.valueOf(), expiresAt: expiration},
+            {},
+            secKey,
+            function(err, signedObject) {
+              navigator.id.registerCertificate(signedObject);
+            }
+          );
+        });
+      });
+    </script>
+  </body>
+</html>
