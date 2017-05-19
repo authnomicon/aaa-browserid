@@ -21,6 +21,11 @@
     }
   ],
   "main": "./lib",
+  "assembly": {
+    "namespace": "browserid",
+    "components": [
+    ]
+  },
   "devDependencies": {
     "make-node": "^0.3.0",
     "mocha": "^2.0.0",
